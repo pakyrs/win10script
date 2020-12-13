@@ -11,7 +11,15 @@ This is the Ultimate Windows 10 Script from a creation from multiple debloat scr
 # Installation:
 Open an elevated PowerShell instance and run the single line below:
 
-iex ((New-Object System.Net.WebClient).DownloadString('https://git.io/JIbkX'))
+Clients:
+
+iex ((New-Object System.Net.WebClient).DownloadString('https://git.io/JIbNG'))
+
+OR
+
+Engineers:
+
+iex ((New-Object System.Net.WebClient).DownloadString('https://git.io/JIbNG'))
 
 Once finished running the script, reboot your machine.
 
