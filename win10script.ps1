@@ -15,7 +15,7 @@ Write-Host "Installing Runtimes"
 choco install vcredist140 -y
 choco install adobeair -y
 choco install dotnetfx -y
-choco install silverlighy -y
+choco install silverlight -y
 Write-Host "Installing Commercial Apps"
 choco install adobereader -y
 #choco install shutup10 -y
