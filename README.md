@@ -16,7 +16,9 @@ iex ((New-Object System.Net.WebClient).DownloadString('https://git.io/JIbkX'))
 # Apps Installed:
 
 Base apps: VLC, 7zip, Chrome, Firefox, Notepad++
+
 Runtimes: VCredist, Adobe Air, Dotnet, Silverlight, NET3.5
+
 Others: Adober Reader DC, O&OShutup10, Google Earth Pro, Office 365 Business, MS Teams, Creative Cloud
 
 Notes: Creative Cloud is not silent, you must sign in to continue the installation
