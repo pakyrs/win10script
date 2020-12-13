@@ -18,7 +18,7 @@ choco install dotnetfx -y
 choco install silverlighy -y
 Write-Host "Installing Commercial Apps"
 choco install adobereader -y
-choco install shutup10 -y
+#choco install shutup10 -y
 choco install googleearthpro -y
 choco install office365business -y
 choco install microsoft-teams.install -y
