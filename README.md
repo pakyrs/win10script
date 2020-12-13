@@ -19,7 +19,7 @@ OR
 
 Engineers:
 
-iex ((New-Object System.Net.WebClient).DownloadString('https://git.io/JIbNG'))
+iex ((New-Object System.Net.WebClient).DownloadString('https://git.io/JIbxa'))
 
 Once finished running the script, reboot your machine.
 
