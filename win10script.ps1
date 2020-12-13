@@ -11,7 +11,7 @@ choco install 7zip.install -y
 choco install googlechrome -y
 choco install firefox -y
 choco install notepadplusplus -y
-#choco install putty -y
+choco install putty -y
 Write-Host "Installing Runtimes"
 choco install vcredist140 -y
 choco install adobeair -y
