@@ -11,6 +11,7 @@ choco install 7zip.install -y
 choco install googlechrome -y
 choco install firefox -y
 choco install notepadplusplus -y
+#choco install putty -y
 Write-Host "Installing Runtimes"
 choco install vcredist140 -y
 choco install adobeair -y
@@ -209,7 +210,10 @@ $Bloatware = @(
 
 	 	  Write-Host "Changing default Explorer view to This PC..."
 	 	Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "LaunchTo" -Type DWord -Value 1
-
+		
+		  Write-Host "Changing default Explorer view to This PC..."
+		Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Search -Name "SearchboxTaskbarMode" -Type DWord -Value 0
+		
 	 	## Write-Host "Hiding People icon..."
 	 ##	If (!(Test-Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\People")) {
 	 ##		New-Item -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\People" | Out-Null
