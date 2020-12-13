@@ -13,6 +13,8 @@ Open an elevated PowerShell instance and run the single line below:
 
 iex ((New-Object System.Net.WebClient).DownloadString('https://git.io/JIbkX'))
 
+Once finished running the script, reboot your machine.
+
 # Apps Installed:
 
 Base apps: VLC, 7zip, Chrome, Firefox, Notepad++
