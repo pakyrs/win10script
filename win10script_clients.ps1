@@ -211,8 +211,8 @@ $Bloatware = @(
 	 	  Write-Host "Changing default Explorer view to This PC..."
 	 	Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "LaunchTo" -Type DWord -Value 1
 		
-		  Write-Host "Changing default Explorer view to This PC..."
-		Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Search" -Name "SearchboxTaskbarMode" -Type DWord -Value 0
+		  Write-Host "Removing Cortana button from Taskbar"
+		Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ShowCortanaButton" -Type DWord -Value 0
 		
 	 	## Write-Host "Hiding People icon..."
 	 ##	If (!(Test-Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\People")) {
