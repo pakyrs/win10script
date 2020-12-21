@@ -25,6 +25,7 @@ choco install office365business -y
 #choco install microsoft-teams.install -y
 ##Creative Cloud is not silent, please sign in and also deploy with trial PS IN IL ACDC (might need reboot)
 #choco install adobe-creative-cloud -y
+#choco install sonos-controller -y
 
 ##Enable NET3.5 for legacy products (Bentley)
 #Enable-WindowsOptionalFeature -Online -FeatureName "NetFx3"
