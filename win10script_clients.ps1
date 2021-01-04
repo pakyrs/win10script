@@ -19,16 +19,16 @@ Write-Host "Installing Runtimes"
 #choco install silverlight -y
 Write-Host "Installing Commercial Apps"
 choco install adobereader -y
-#choco install shutup10 -y
-#choco install googleearthpro -y
+choco install shutup10 -y
+choco install googleearthpro -y
 choco install office365business -y
-#choco install microsoft-teams.install -y
+choco install microsoft-teams.install -y
 ##Creative Cloud is not silent, please sign in and also deploy with trial PS IN IL ACDC (might need reboot)
-#choco install adobe-creative-cloud -y
+choco install adobe-creative-cloud -y
 #choco install sonos-controller -y
 
 ##Enable NET3.5 for legacy products (Bentley)
-#Enable-WindowsOptionalFeature -Online -FeatureName "NetFx3"
+Enable-WindowsOptionalFeature -Online -FeatureName "NetFx3"
 
 ##Windows Privacy Settings with O&O Shutup NEED REVIEWING THIS List
     Write-Host "Running O&O Shutup with Recommended Settings"
