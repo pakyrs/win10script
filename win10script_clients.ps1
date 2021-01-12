@@ -13,18 +13,21 @@ choco install firefox -y
 choco install notepadplusplus -y
 #choco install putty -y
 Write-Host "Installing Runtimes"
-#choco install vcredist140 -y
-#choco install adobeair -y
-#choco install dotnetfx -y
-#choco install silverlight -y
+choco install vcredist140 -y
+choco install adobeair -y
+choco install dotnetfx -y
+choco install silverlight -y
 Write-Host "Installing Commercial Apps"
 choco install adobereader -y
 choco install shutup10 -y
-choco install googleearthpro -y
-choco install office365business -y
+#choco install googleearthpro -y
+choco install slack -y
+choco install zoom -y
+choco install sketchbook -y
+#choco install office365business -y
 choco install microsoft-teams.install -y
 ##Creative Cloud is not silent, please sign in and also deploy with trial PS IN IL ACDC (might need reboot)
-choco install adobe-creative-cloud -y
+#choco install adobe-creative-cloud -y
 #choco install sonos-controller -y
 
 ##Enable NET3.5 for legacy products (Bentley)
