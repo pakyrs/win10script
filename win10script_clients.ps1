@@ -23,7 +23,6 @@ choco install shutup10 -y
 #choco install googleearthpro -y
 choco install slack -y
 choco install zoom -y
-choco install sketchbook -y
 #choco install office365business -y
 choco install microsoft-teams.install -y
 ##Creative Cloud is not silent, please sign in and also deploy with trial PS IN IL ACDC (might need reboot)
