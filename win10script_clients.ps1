@@ -20,13 +20,11 @@ choco install silverlight -y
 Write-Host "Installing Commercial Apps"
 choco install adobereader -y
 choco install shutup10 -y
-#choco install googleearthpro -y
+choco install googleearthpro -y
 choco install slack -y
 choco install zoom -y
-#choco install office365business -y
+choco install office365business -y
 choco install microsoft-teams.install -y
-##Creative Cloud is not silent, please sign in and also deploy with trial PS IN IL ACDC (might need reboot)
-#choco install adobe-creative-cloud -y
 #choco install sonos-controller -y
 
 ##Enable NET3.5 for legacy products (Bentley)
@@ -241,3 +239,5 @@ $Bloatware = @(
 	#Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\DWM" -Name "EnableAeroPeek" -Type DWord -Value 0
 
 #More to follow
+##Creative Cloud is not silent, please sign in and also deploy with trial PS IN IL ACDC (might need reboot)
+choco install adobe-creative-cloud -y
