@@ -21,11 +21,11 @@ Write-Host "Installing Commercial Apps"
 choco install adobereader -y
 choco install shutup10 -y
 choco install googleearthpro -y
-choco install slack -y
 choco install zoom -y
 choco install office365business -y
 choco install microsoft-teams.install -y
-#choco install sonos-controller -y
+#choco install slack -y #TMH only
+#choco install sonos-controller -y #TMH only
 
 ##Enable NET3.5 for legacy products (Bentley)
 Enable-WindowsOptionalFeature -Online -FeatureName "NetFx3"
