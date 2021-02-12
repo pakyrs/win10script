@@ -192,5 +192,6 @@ $Bloatware = @(
         
         #Password Never to expire
         wmic useraccount where “Name=’itechticsuser'” set PasswordExpires=false 
+	wmic Useraccount set PasswordExpires=false
 
 
