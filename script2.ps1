@@ -191,7 +191,25 @@ $Bloatware = @(
         
         
         #Password Never to expire
-        wmic useraccount where “Name=’itechticsuser'” set PasswordExpires=false 
 	wmic Useraccount set PasswordExpires=false
+	
+	
+	$Wallpaper = "wallpaper.jpg"
+$Lockscreen = "wallpaper.jpg"
+
+# Copy the OEM bitmap
+If (-not(Test-Patch c:\background)) {New-item c:\background -type directory}
+
+# make required registry changes
+$strPath3 = "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Personalization"
+$strPath4 = "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System"
+
+New-Item -Path HKLM:\Software\Policies\Microsoft\Windows -Name Personalization -Force
+Set-ItemProperty -Path $strPath3 -Name LockscreenImage -value "C:\background\$lockscreen"
+New-Item -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies -Name System -Force
+Set-ItemProperty -Path $strPath4 -Name Wallpaper -Value "C:\background\$wallpaper"
+Set-ItemProperty -Path $strPath4 -Name WallpaperStyle -value "2"
+
+write-host "End of Script"
 
 
