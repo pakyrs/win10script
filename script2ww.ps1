@@ -1,23 +1,4 @@
 ##Windows 10 basic software installer + debloater + customization, more features to be added.
-
-##Windows Privacy Settings with O&O Shutup NEED REVIEWING THIS List
-    Write-Host "Running O&O Shutup with Recommended Settings"
-	Import-Module BitsTransfer
-	Start-BitsTransfer -Source "https://raw.githubusercontent.com/pakyrs/win10script/master/ooshutup10.cfg" -Destination ooshutup10.cfg
-	Start-BitsTransfer -Source "https://dl5.oo-software.com/files/ooshutup10/OOSU10.exe" -Destination OOSU10.exe
-	./OOSU10.exe ooshutup10.cfg /quiet
-
-##Windows Telemetry
-    Write-Host "Disabling Telemetry..."
-	Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" -Name "AllowTelemetry" -Type DWord -Value 0
-	Set-ItemProperty -Path "HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Policies\DataCollection" -Name "AllowTelemetry" -Type DWord -Value 0
-	Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\DataCollection" -Name "AllowTelemetry" -Type DWord -Value 0
-	Disable-ScheduledTask -TaskName "Microsoft\Windows\Application Experience\Microsoft Compatibility Appraiser" | Out-Null
-	Disable-ScheduledTask -TaskName "Microsoft\Windows\Application Experience\ProgramDataUpdater" | Out-Null
-	Disable-ScheduledTask -TaskName "Microsoft\Windows\Autochk\Proxy" | Out-Null
-	Disable-ScheduledTask -TaskName "Microsoft\Windows\Customer Experience Improvement Program\Consolidator" | Out-Null
-	Disable-ScheduledTask -TaskName "Microsoft\Windows\Customer Experience Improvement Program\UsbCeip" | Out-Null
-	Disable-ScheduledTask -TaskName "Microsoft\Windows\DiskDiagnostic\Microsoft-Windows-DiskDiagnosticDataCollector" | Out-Null
     
     Write-Host "Disabling Feedback..."
 	If (!(Test-Path "HKCU:\SOFTWARE\Microsoft\Siuf\Rules")) {
@@ -175,41 +156,20 @@ $Bloatware = @(
        Write-Host "Trying to remove $Bloat."
    }
 
-	 ##Customization
-	 	  Write-Host "Hiding Task View button..."
-	 	Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ShowTaskViewButton" -Type DWord -Value 0
+	##Customization
+	Write-Host "Hiding Task View button..."
+	Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ShowTaskViewButton" -Type DWord -Value 0
 
-	 	  Write-Host "Changing default Explorer view to This PC..."
-	 	Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "LaunchTo" -Type DWord -Value 1
+	Write-Host "Changing default Explorer view to This PC..."
+	Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "LaunchTo" -Type DWord -Value 1
 		
-		  Write-Host "Removing Cortana button from Taskbar"
-		Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ShowCortanaButton" -Type DWord -Value 0
+	Write-Host "Removing Cortana button from Taskbar"
+	Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ShowCortanaButton" -Type DWord -Value 0
 		
-          Write-Host "Turn off fast startup - Hibernation"
-		Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Power" -Name "HiberbootEnabled" -Type DWord -Value 0
+        Write-Host "Turn off fast startup - Hibernation"
+	Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Power" -Name "HiberbootEnabled" -Type DWord -Value 0
 
-        
-        
         #Password Never to expire
 	wmic Useraccount set PasswordExpires=false
 	
 	
-	$Wallpaper = "wallpaper.jpg"
-$Lockscreen = "wallpaper.jpg"
-
-# Copy the OEM bitmap
-If (-not(Test-Patch c:\background)) {New-item c:\background -type directory}
-
-# make required registry changes
-$strPath3 = "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Personalization"
-$strPath4 = "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System"
-
-New-Item -Path HKLM:\Software\Policies\Microsoft\Windows -Name Personalization -Force
-Set-ItemProperty -Path $strPath3 -Name LockscreenImage -value "C:\background\$lockscreen"
-New-Item -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies -Name System -Force
-Set-ItemProperty -Path $strPath4 -Name Wallpaper -Value "C:\background\$wallpaper"
-Set-ItemProperty -Path $strPath4 -Name WallpaperStyle -value "2"
-
-write-host "End of Script"
-
-
