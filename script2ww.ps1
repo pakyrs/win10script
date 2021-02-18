@@ -168,7 +168,11 @@ $Bloatware = @(
 		
         Write-Host "Turn off fast startup - Hibernation"
 	Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Power" -Name "HiberbootEnabled" -Type DWord -Value 0
-
+	
+	Write-Host "Hide windows Search bar"
+	Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Search" -Name "SearchboxTaskbarMode" -Type DWord -Value 0
+	
+	
         #Password Never to expire
 	wmic Useraccount set PasswordExpires=false
 	
