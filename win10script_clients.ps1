@@ -208,24 +208,27 @@ $Bloatware = @(
    }
 
 	 ##Customization
-	 	  Write-Host "Hiding Task View button..."
-	 	Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ShowTaskViewButton" -Type DWord -Value 0
+	Write-Host "Hiding Task View button..."
+	Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ShowTaskViewButton" -Type DWord -Value 0
 
-	 	  Write-Host "Changing default Explorer view to This PC..."
-	 	Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "LaunchTo" -Type DWord -Value 1
+	Write-Host "Changing default Explorer view to This PC..."
+	Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "LaunchTo" -Type DWord -Value 1
+
+	##Customization
+	Write-Host "Hiding Task View button..."
+	Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ShowTaskViewButton" -Type DWord -Value 0
+
+	Write-Host "Changing default Explorer view to This PC..."
+	Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "LaunchTo" -Type DWord -Value 1
 		
-		  Write-Host "Removing Cortana button from Taskbar"
-		Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ShowCortanaButton" -Type DWord -Value 0
+	Write-Host "Removing Cortana button from Taskbar"
+	Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ShowCortanaButton" -Type DWord -Value 0
 		
-	 	## Write-Host "Hiding People icon..."
-	 ##	If (!(Test-Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\People")) {
-	 ##		New-Item -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\People" | Out-Null
-	 ##	}
-	 ##	Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\People" -Name "PeopleBand" -Type DWord -Value 0
-
-	 	## Write-Host "Showing all tray icons..."
-	 ##	Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" -Name "EnableAutoTray" -Type DWord -Value 0
-
+        Write-Host "Turn off fast startup - Hibernation"
+	Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Power" -Name "HiberbootEnabled" -Type DWord -Value 0
+	
+        #Password Never to expire
+	wmic Useraccount set PasswordExpires=false
 
 ##VFX for performance - TBC
     #Write-Host "Adjusting visual effects for performance..."
