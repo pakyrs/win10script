@@ -21,11 +21,11 @@ Write-Host "Installing Commercial Apps"
 choco install adobereader -y
 choco install shutup10 -y
 choco install googleearthpro -y
-choco install zoom -y
-choco install office365business -y
-choco install microsoft-teams.install -y
+#choco install zoom -y
+#choco install office365business -y
+#choco install microsoft-teams.install -y
 choco install vscode -y
-choco install sketchbook -y #WW only
+#choco install sketchbook -y #WW only
 #choco install slack -y #TMH only
 #choco install sonos-controller -y #TMH only
 
@@ -242,4 +242,4 @@ $Bloatware = @(
 
 #More to follow
 ##Creative Cloud is not silent, please sign in and also deploy with trial PS IN IL ACDC (might need reboot)
-choco install adobe-creative-cloud -y
+#choco install adobe-creative-cloud -y
