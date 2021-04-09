@@ -25,7 +25,7 @@ choco install zoom -y
 choco install office365business -y
 choco install microsoft-teams.install -y
 choco install vscode -y
-choco install sketchbook -y #WW only
+#choco install sketchbook -y #WW only
 #choco install slack -y #TMH only
 #choco install sonos-controller -y #TMH only
 
