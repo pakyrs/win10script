@@ -10,7 +10,8 @@ this is an update I just did on visual studio code
 Write-Host "Installing Base Apps"
 choco install vlc -y
 choco install 7zip.install -y
-choco install googlechrome -y
+#choco install googlechrome -y
+chici install vivaldi -y
 choco install firefox -y
 choco install notepadplusplus -y
 choco install putty -y
@@ -22,10 +23,11 @@ choco install dotnetfx -y
 choco install silverlight -y
 Write-Host "Installing Commercial Apps"
 choco install adobereader -y
-#choco install shutup10 -y
+choco install shutup10 -y
 choco install googleearthpro -y
 choco install office365business -y
 choco install microsoft-teams.install -y
+choco install microsoft-windows-terminal -y
 
 ##Enable NET3.5 for legacy products (Bentley)
 Enable-WindowsOptionalFeature -Online -FeatureName "NetFx3"
