@@ -30,7 +30,6 @@ choco install microsoft-teams.install -y
 choco install vscode -y
 choco install onedrive -y
 choco install dropbox -y
-choco install spotify -y
 choco install ccleaner -y
 choco install authy-desktop -y
 choco install teamviewer9 -y
@@ -232,6 +231,9 @@ $Bloatware = @(
 		
         Write-Host "Turn off fast startup - Hibernation"
 	Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Power" -Name "HiberbootEnabled" -Type DWord -Value 0
+
+Write-Host "Enable Dark mode"
+Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize -Name AppsUseLightTheme -Value 0
     
     Write-Host "Disabling Feedback..."
 	If (!(Test-Path "HKCU:\SOFTWARE\Microsoft\Siuf\Rules")) {
