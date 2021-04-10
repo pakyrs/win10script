@@ -23,6 +23,12 @@ iex ((New-Object System.Net.WebClient).DownloadString('https://git.io/JIbxa'))
 
 Once finished running the script, reboot your machine.
 
+OR 
+
+Mine customized:
+
+iex ((New-Object System.Net.WebClient).DownloadString('https://git.io/JOUQO'))
+
 # Apps Installed:
 
 Base apps: VLC, 7zip, Chrome, Firefox, Notepad++
