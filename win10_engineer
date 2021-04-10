@@ -241,3 +241,6 @@ $Bloatware = @(
 	Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\DWM" -Name "EnableAeroPeek" -Type DWord -Value 0
 
 #More to follow
+
+
+choco install adobe-creative-cloud -y
