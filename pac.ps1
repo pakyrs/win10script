@@ -9,7 +9,6 @@ Write-Host "Installing Base Apps"
 choco install vlc -y
 choco install 7zip.install -y
 choco install vivaldi -y
-choco install firefox -y
 choco install notepadplusplus -y
 choco install putty -y
 choco install microsoft-windows-terminal -y
