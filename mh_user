@@ -4,30 +4,34 @@ Write-Host "Installing Chocolatey"
 	Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 	choco install chocolatey-core.extension -y
 
-this is an update I just did on visual studio code
-
 ##Chocolatey app List
 Write-Host "Installing Base Apps"
 choco install vlc -y
 choco install 7zip.install -y
-#choco install googlechrome -y
-chici install vivaldi -y
-choco install firefox -y
+choco install vivaldi -y
 choco install notepadplusplus -y
 choco install putty -y
-choco install winbox -y
+choco install microsoft-windows-terminal -y
+choco install obsidian -y
+choco install calibre -y
+choco install filezilla -y
+choco install bitwarden -y
+choco install qbittorrent -y
+choco install etcher -y
 Write-Host "Installing Runtimes"
-choco install vcredist140 -y
-choco install adobeair -y
 choco install dotnetfx -y
 choco install silverlight -y
 Write-Host "Installing Commercial Apps"
 choco install adobereader -y
 choco install shutup10 -y
-choco install googleearthpro -y
-choco install office365business -y
+choco install zoom -y
 choco install microsoft-teams.install -y
-choco install microsoft-windows-terminal -y
+choco install vscode -y
+choco install onedrive -y
+choco install dropbox -y
+choco install ccleaner -y
+choco install authy-desktop -y
+choco install teamviewer9 -y
 
 ##Enable NET3.5 for legacy products (Bentley)
 Enable-WindowsOptionalFeature -Online -FeatureName "NetFx3"
@@ -105,28 +109,28 @@ $Bloatware = @(
        "*Microsoft.MSPaint*"
        "Microsoft.Microsoft3DViewer"
        "Microsoft.3DBuilder"
-       #"Microsoft.AppConnector"
+       "Microsoft.AppConnector"
        "Microsoft.BingNews"
        "Microsoft.BingTranslator"
        "Microsoft.BingWeather"
        "Microsoft.WindowsMaps"
        "Microsoft.WindowsSoundRecorder"
        "Microsoft.SkypeApp"
-       #"Microsoft.StorePurchaseApp"
+       "Microsoft.StorePurchaseApp"
        "Microsoft.Wallet"
        "Microsoft.Whiteboard"
-       #"Microsoft.WindowsAlarms"
-       #"microsoft.windowscommunicationsapps"
+       "Microsoft.WindowsAlarms"
+       "microsoft.windowscommunicationsapps"
        "Microsoft.Print3D"
        "Microsoft.Office.Lens"
        "Microsoft.Office.Sway"
        "Microsoft.OneConnect"
        "Microsoft.People"
        "*Microsoft.BingWeather*"
-       #"*Microsoft.Advertising.Xaml_10.1712.5.0_x64__8wekyb3d8bbwe*"
-       #"*Microsoft.Advertising.Xaml_10.1712.5.0_x86__8wekyb3d8bbwe*"
-       #"*Microsoft.MicrosoftStickyNotes*"
-       #"*Microsoft.Windows.Photos*"
+       "*Microsoft.Advertising.Xaml_10.1712.5.0_x64__8wekyb3d8bbwe*"
+       "*Microsoft.Advertising.Xaml_10.1712.5.0_x86__8wekyb3d8bbwe*"
+       "*Microsoft.MicrosoftStickyNotes*"
+       "*Microsoft.Windows.Photos*"
        #"*Microsoft.WindowsCalculator*"
        #"*Microsoft.WindowsStore*"
 
@@ -208,39 +212,67 @@ $Bloatware = @(
    }
 
 	 ##Customization
-	 	  Write-Host "Hiding Task View button..."
-	 	Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ShowTaskViewButton" -Type DWord -Value 0
+	Write-Host "Hiding Task View button..."
+	Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ShowTaskViewButton" -Type DWord -Value 0
 
-	 	  Write-Host "Changing default Explorer view to This PC..."
-	 	Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "LaunchTo" -Type DWord -Value 1
+	Write-Host "Changing default Explorer view to This PC..."
+	Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "LaunchTo" -Type DWord -Value 1
+
+	##Customization
+	Write-Host "Hiding Task View button..."
+	Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ShowTaskViewButton" -Type DWord -Value 0
+
+	Write-Host "Changing default Explorer view to This PC..."
+	Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "LaunchTo" -Type DWord -Value 1
 		
-		  Write-Host "Removing Cortana button from Taskbar"
-		Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ShowCortanaButton" -Type DWord -Value 0
+	Write-Host "Removing Cortana button from Taskbar"
+	Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ShowCortanaButton" -Type DWord -Value 0
 		
-	 	  Write-Host "Hiding People icon..."
-	 	If (!(Test-Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\People")) {
-	 		New-Item -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\People" | Out-Null
-	 	}
-	 	Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\People" -Name "PeopleBand" -Type DWord -Value 0
+        Write-Host "Turn off fast startup - Hibernation"
+	Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Power" -Name "HiberbootEnabled" -Type DWord -Value 0
 
-	 	 Write-Host "Showing all tray icons..."
-	 	Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" -Name "EnableAutoTray" -Type DWord -Value 0
+        Write-Host "Enable Dark mode"
+  Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize -Name AppsUseLightTheme -Value 0
+    
+    Write-Host "Disabling Feedback..."
+	If (!(Test-Path "HKCU:\SOFTWARE\Microsoft\Siuf\Rules")) {
+		New-Item -Path "HKCU:\SOFTWARE\Microsoft\Siuf\Rules" -Force | Out-Null
+	}
+	Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Siuf\Rules" -Name "NumberOfSIUFInPeriod" -Type DWord -Value 0
+	Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\DataCollection" -Name "DoNotShowFeedbackNotifications" -Type DWord -Value 1
+	Disable-ScheduledTask -TaskName "Microsoft\Windows\Feedback\Siuf\DmClient" -ErrorAction SilentlyContinue | Out-Null
+	Disable-ScheduledTask -TaskName "Microsoft\Windows\Feedback\Siuf\DmClientOnScenarioDownload" -ErrorAction SilentlyContinue | Out-Null
+
+		Write-Host "Disabling Tailored Experiences..."
+	If (!(Test-Path "HKCU:\SOFTWARE\Policies\Microsoft\Windows\CloudContent")) {
+		New-Item -Path "HKCU:\SOFTWARE\Policies\Microsoft\Windows\CloudContent" -Force | Out-Null
+	}
+	Set-ItemProperty -Path "HKCU:\SOFTWARE\Policies\Microsoft\Windows\CloudContent" -Name "DisableTailoredExperiencesWithDiagnosticData" -Type DWord -Value 1
+
+		Write-Host "Disabling Advertising ID..."
+	If (!(Test-Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\AdvertisingInfo")) {
+		New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\AdvertisingInfo" | Out-Null
+	}
+	Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\AdvertisingInfo" -Name "DisabledByGroupPolicy" -Type DWord -Value 1
+
+		Write-Host "Disabling Error reporting..."
+	Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\Windows Error Reporting" -Name "Disabled" -Type DWord -Value 1
+	Disable-ScheduledTask -TaskName "Microsoft\Windows\Windows Error Reporting\QueueReporting" | Out-Null
+
+		Write-Host "Stopping and disabling Diagnostics Tracking Service..."
+	Stop-Service "DiagTrack" -WarningAction SilentlyContinue
+	Set-Service "DiagTrack" -StartupType Disabled
+
+	  Write-Host "Stopping and disabling WAP Push Service..."
+	Stop-Service "dmwappushservice" -WarningAction SilentlyContinue
+	Set-Service "dmwappushservice" -StartupType Disabled
+
+	  Write-Host "Disabling Shared Experiences..."
+	Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\System" -Name "EnableCdp" -Type DWord -Value 0
+	Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\System" -Name "EnableMmx" -Type DWord -Value 0
+
+        #Password Never to expire
+	wmic Useraccount set PasswordExpires=false
 
 
-##VFX for performance - TBC
-    Write-Host "Adjusting visual effects for performance..."
-	Set-ItemProperty -Path "HKCU:\Control Panel\Desktop" -Name "DragFullWindows" -Type String -Value 0
-	Set-ItemProperty -Path "HKCU:\Control Panel\Desktop" -Name "MenuShowDelay" -Type String -Value 0
-	Set-ItemProperty -Path "HKCU:\Control Panel\Desktop" -Name "UserPreferencesMask" -Type Binary -Value ([byte[]](144,18,3,128,16,0,0,0))
-	Set-ItemProperty -Path "HKCU:\Control Panel\Desktop\WindowMetrics" -Name "MinAnimate" -Type String -Value 0
-	Set-ItemProperty -Path "HKCU:\Control Panel\Keyboard" -Name "KeyboardDelay" -Type DWord -Value 0
-	Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ListviewAlphaSelect" -Type DWord -Value 0
-	Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ListviewShadow" -Type DWord -Value 0
-	Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "TaskbarAnimations" -Type DWord -Value 0
-	Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects" -Name "VisualFXSetting" -Type DWord -Value 3
-	Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\DWM" -Name "EnableAeroPeek" -Type DWord -Value 0
-
-#More to follow
-
-
-choco install adobe-creative-cloud -y
+	
