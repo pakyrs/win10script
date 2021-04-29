@@ -13,7 +13,7 @@ Open an elevated PowerShell instance and run the single line below:
 
 Clients:
 
-iex ((New-Object System.Net.WebClient).DownloadString('https://git.io/JIbNG'))
+iex ((New-Object System.Net.WebClient).DownloadString('https://git.io/J3quM'))
 
 OR
 
