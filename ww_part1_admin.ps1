@@ -245,4 +245,4 @@ $Bloatware = @(
 
 #More to follow
 ##Creative Cloud is not silent, please sign in and also deploy with trial PS IN IL ACDC (might need reboot)
-#choco install adobe-creative-cloud -y
+choco install adobe-creative-cloud -y
