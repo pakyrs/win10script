@@ -26,7 +26,7 @@ choco install zoom -y
 choco install office365business -y
 choco install microsoft-teams.install -y
 choco install vscode -y
-choco install spotify -y
+#choco install spotify -y #crashes with win store one
 choco install bulkrenameutility -y #CS only
 choco install evernote -y #CS only
 #choco install sketchbook -y #WW only
