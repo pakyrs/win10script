@@ -11,11 +11,11 @@ This is the Ultimate Windows 10 Script from a creation from multiple debloat scr
 # Installation:
 Open an elevated PowerShell instance and run the single line below:
 
-## Clients (ie WW):
+## Clients:
 
 ### Part1 under local Admin (main softwares and debloat)
 
-iex ((New-Object System.Net.WebClient).DownloadString('https://git.io/J3quM'))
+iex ((New-Object System.Net.WebClient).DownloadString('https://git.io/Jc49B'))
 
 ### Part2 under domain user (customization and preferences)
 
