@@ -17,6 +17,7 @@ choco install vcredist140 -y
 choco install adobeair -y
 choco install dotnetfx -y
 choco install silverlight -y
+choco install javaruntime -y
 Write-Host "Installing Commercial Apps"
 choco install adobereader -y
 choco install shutup10 -y
@@ -26,6 +27,8 @@ choco install office365business -y
 choco install microsoft-teams.install -y
 choco install vscode -y
 choco install spotify -y
+choco install bulkrenameutility -y #CS only
+choco install evernote -y #CS only
 #choco install sketchbook -y #WW only
 #choco install slack -y #TMH only
 #choco install sonos-controller -y #TMH only
