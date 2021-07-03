@@ -32,6 +32,7 @@ choco install dropbox -y
 choco install ccleaner -y
 choco install authy-desktop -y
 choco install teamviewer9 -y
+choco install keepassxc -y
 
 ##Enable NET3.5 for legacy products (Bentley)
 Enable-WindowsOptionalFeature -Online -FeatureName "NetFx3"
